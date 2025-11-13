@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Automotive Jobs Console | Motor Trade X-Ray & Technician Boolean Search</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Free Automotive and Motor Trade talent sourcing console. Build Boolean strings, generate Google X-Ray searches, find CV-type files, and source technicians, mechanics, panel beaters, estimators, service advisors, and bodyshop staff worldwide." />
+  <meta name="keywords" content="automotive jobs, motor trade jobs, technician jobs, vehicle technician, mechanic jobs, panel beater jobs, bodyshop recruitment, automotive recruitment tools, motor trade recruiter, automotive x-ray search, boolean builder automotive" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+      margin: 0;
+      padding: 20px;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .container {
+      background: #ffffff;
+      padding: 20px 20px 24px;
+      border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+    .brand {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    nav a {
+      font-size: 12px;
+      margin-left: 10px;
+      text-decoration: none;
+      color: #4b5563;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #f3f4f6;
+    }
+    nav a:hover {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+    p.lead {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    .section {
+      margin-top: 18px;
+      padding: 14px 14px 16px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #f9fafb;
+    }
+    .section h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      margin-top: 8px;
+      color: #6b7280;
+    }
+    textarea,
+    input,
+    select {
+      width: 100%;
+      padding: 8px 10px;
+      margin-top: 4px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 13px;
+      background: #f9fafb;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    button {
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: none;
+      margin-right: 6px;
+      margin-top: 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .btn-dark {
+      background: #111827;
+      color: #f9fafb;
+    }
+    .btn-light {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    .btn-dark:hover {
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.5);
+      transform: translateY(-1px);
+    }
+    .btn-light:hover {
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
+      transform: translateY(-1px);
+    }
+    .pills button {
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: #e5e7eb;
+      border: none;
+    }
+    .pills button.active {
+      background: #111827;
+      color: #ffffff;
+    }
+    .history {
+      margin-top: 10px;
+    }
+    small.hint {
+      display: block;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .container {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <header>
+        <div class="brand">Automotive &amp; Motor Trade Talent Console</div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="auto_candidate_console.html">Candidate console</a>
+          <a href="auto_cv_templates.html">CV templates</a>
+        </nav>
+      </header>
+
+      <h1>Recruiter X-Ray &amp; Boolean Builder</h1>
+      <p class="lead">
+        Free global sourcing console for Automotive, Motor Trade and Bodyshop recruiters. Build Normal, Deep and Deep PRO Google X-Ray
+        searches for technicians, mechanics, panel beaters, estimators, service advisors and more – with synonym expansion and recent history.
+      </p>
+
+      <div class="section">
+        <h3>1. Search Strength</h3>
+        <div class="pills">
+          <button id="modeNormal" class="active">Normal</button>
+          <button id="modeDeep">Deep</button>
+          <button id="modePro">Deep PRO</button>
+          <button id="modeBurst">Burst+</button>
+        </div>
+        <small class="hint">
+          Normal = clean query · Deep = synonyms + profile signals · Deep PRO = CV/PDF hunt + contextual signals ·
+          Burst+ = strongest combined deep query.
+        </small>
+      </div>
+
+      <div class="section">
+        <h3>2. Unified X-Ray Builder</h3>
+
+        <label>Role / Keywords</label>
+        <input id="role" placeholder='e.g. "Vehicle Technician" OR "Panel Beater"' />
+
+        <label>Skills (comma separated)</label>
+        <input id="skills" placeholder="e.g. diagnostics, ADAS, VDA, smart repair" />
+
+        <label>Location</label>
+        <input id="location" placeholder='e.g. London OR Birmingham OR "Remote UK"' />
+
+        <label>Site Filter</label>
+        <select id="site">
+          <option value="all">All sites</option>
+          <option value="linkedin">LinkedIn profiles</option>
+          <option value="cv">CV-type files (PDF/DOC)</option>
+        </select>
+
+        <label>Time Filter</label>
+        <select id="time">
+          <option value="any">Any time</option>
+          <option value="year">Past year</option>
+          <option value="month">Past month</option>
+          <option value="week">Past week</option>
+        </select>
+
+        <div>
+          <button class="btn-dark" id="buildX">🧠 Build search</button>
+          <button class="btn-light" id="copyX">📋 Copy query</button>
+          <button class="btn-light" id="openX">🔍 Open in Google</button>
+        </div>
+
+        <textarea id="output" placeholder="Your X-Ray query will appear here…"></textarea>
+
+        <div class="history">
+          <label>Recent X-Ray searches (saved on this device only)</label>
+          <select id="historySelect">
+            <option>No saved searches yet</option>
+          </select>
+          <button class="btn-light" id="loadHistory">⬅ Load</button>
+          <button class="btn-light" id="runHistory">🚀 Run</button>
+          <small class="hint">
+            Up to your last 5 searches are stored in browser local storage. Clearing browser data will reset this.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔒 Disclaimer -->
+  <div style="text-align:center; font-size:11px; color:#9ca3af; margin-top:30px; padding-top:10px;">
+    <strong>Disclaimer:</strong> This free tool generates public Google search links and does not collect, store, or track any personal data.
+    Users are responsible for complying with Google and third-party website policies when accessing search results.
+  </div>
+
+  <script>
+    // --- Synonym engine (Motor Trade + Auto roles) ---
+    const synonyms = {
+      "vehicle technician": [
+        "mechanic",
+        "auto technician",
+        "automotive technician",
+        "diagnostic technician",
+        "diagnostics technician",
+        "service technician",
+        "MOT tester"
+      ],
+      "mechanic": [
+        "vehicle technician",
+        "auto technician",
+        "automotive technician"
+      ],
+      "panel beater": [
+        "bodyshop technician",
+        "collision repair technician",
+        "panel technician",
+        "body repair technician"
+      ],
+      "paint technician": [
+        "refinisher",
+        "spray painter",
+        "paint sprayer",
+        "smart repair technician"
+      ],
+      "smart repair": [
+        "smart repair technician",
+        "smart repairer",
+        "alloy wheel repair"
+      ],
+      "estimator": [
+        "VDA",
+        "vehicle damage assessor",
+        "bodyshop estimator",
+        "accident repair estimator"
+      ],
+      "service advisor": [
+        "service adviser",
+        "service receptionist",
+        "service consultant"
+      ],
+      "auto electrician": [
+        "vehicle electrician",
+        "diagnostic technician",
+        "diagnostics technician"
+      ],
+      "collision technician": [
+        "body repair technician",
+        "accident repair technician",
+        "bodyshop technician"
+      ],
+      "workshop controller": [
+        "workshop supervisor",
+        "workshop manager"
+      ]
+    };
+
+    let mode = "normal";
+
+    function setMode(m) {
+      mode = m;
+      document.querySelectorAll(".pills button").forEach(b => b.classList.remove("active"));
+      if (m === "normal") document.getElementById("modeNormal").classList.add("active");
+      if (m === "deep") document.getElementById("modeDeep").classList.add("active");
+      if (m === "pro") document.getElementById("modePro").classList.add("active");
+      if (m === "burst") document.getElementById("modeBurst").classList.add("active");
+    }
+
+    document.getElementById("modeNormal").onclick = () => setMode("normal");
+    document.getElementById("modeDeep").onclick = () => setMode("deep");
+    document.getElementById("modePro").onclick = () => setMode("pro");
+    document.getElementById("modeBurst").onclick = () => setMode("burst");
+
+    function expandSynonyms(text) {
+      if (!text) return "";
+      const lower = text.toLowerCase();
+      for (const key in synonyms) {
+        if (lower.includes(key)) {
+          const group = [key, ...synonyms[key]];
+          return "(" + group.map(x => '"' + x + '"').join(" OR ") + ")";
+        }
+      }
+      return text;
+    }
+
+    const KEY = "mtc_xray_history";
+    const MAX_HISTORY = 5;
+
+    function loadHistoryArray() {
+      try {
+        const raw = localStorage.getItem(KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveHistoryArray(arr) {
+      try {
+        localStorage.setItem(KEY, JSON.stringify(arr));
+      } catch (e) {}
+    }
+
+    function refreshHistorySelect() {
+      const sel = document.getElementById("historySelect");
+      const history = loadHistoryArray();
+      sel.innerHTML = "";
+      if (!history.length) {
+        sel.innerHTML = "<option>No saved searches yet</option>";
+        return;
+      }
+      sel.innerHTML = "<option>Select a previous search…</option>";
+      history.forEach((item, idx) => {
+        const opt = document.createElement("option");
+        opt.value = idx;
+        let label = item.role || "(no role)";
+        if (item.location) label += " · " + item.location;
+        sel.appendChild(opt);
+        opt.textContent = label;
+      });
+    }
+
+    function saveHistoryEntry(query, role, skills, location, site, time) {
+      if (!query) return;
+      const history = loadHistoryArray();
+      const entry = { query, role, skills, location, site, time };
+
+      const existing = history.findIndex(h => h.query === query);
+      if (existing !== -1) history.splice(existing, 1);
+
+      history.unshift(entry);
+      if (history.length > MAX_HISTORY) history.length = MAX_HISTORY;
+      saveHistoryArray(history);
+      refreshHistorySelect();
+    }
+
+    function buildQuery() {
+      const roleInput = document.getElementById("role").value.trim();
+      const skillsInput = document.getElementById("skills").value.trim();
+      const locationInput = document.getElementById("location").value.trim();
+      const site = document.getElementById("site").value;
+      const time = document.getElementById("time").value;
+
+      if (!roleInput && !skillsInput) {
+        alert("Please enter at least a role or some skills.");
+        return;
+      }
+
+      let rolePart = expandSynonyms(roleInput);
+      if (!rolePart) rolePart = roleInput;
+
+      let skillsPart = "";
+      if (skillsInput) {
+        const list = skillsInput.split(",").map(s => s.trim()).filter(Boolean);
+        skillsPart = "(" + list.map(s => '"' + s + '"').join(" OR ") + ")";
+      }
+
+      const parts = [];
+      if (rolePart) parts.push(rolePart);
+      if (skillsPart) parts.push(skillsPart);
+      if (locationInput) parts.push("(" + locationInput + ")");
+
+      if (site === "linkedin") {
+        parts.push("site:linkedin.com/in");
+      } else if (site === "cv") {
+        parts.push("(filetype:pdf OR filetype:doc OR filetype:docx OR filetype:rtf)");
+      }
+
+      if (mode === "deep") {
+        parts.push('("CV" OR "resume" OR "profile") (intitle:profile OR inurl:profile)');
+      }
+      if (mode === "pro") {
+        parts.push('("diagnostics" OR "fault finding" OR "MOT" OR bodyshop OR collision)');
+      }
+      if (mode === "burst") {
+        parts.push('("CV" OR "resume") (filetype:pdf OR filetype:doc OR filetype:docx OR filetype:rtf) ("diagnostics" OR "fault finding" OR "MOT" OR bodyshop OR collision)');
+      }
+
+      const finalQuery = parts.join(" ");
+      document.getElementById("output").value = finalQuery;
+
+      saveHistoryEntry(finalQuery, roleInput, skillsInput, locationInput, site, time);
+    }
+
+    document.getElementById("buildX").addEventListener("click", buildQuery);
+
+    document.getElementById("copyX").addEventListener("click", () => {
+      const text = document.getElementById("output").value;
+      if (!text) {
+        alert("Build a query first.");
+        return;
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Query copied!");
+      }).catch(() => {
+        alert("Could not copy automatically – please copy manually.");
+      });
+    });
+
+    function openQueryInGoogle(query, timeRange) {
+      if (!query) {
+        alert("Nothing to search – build or load a query first.");
+        return;
+      }
+      let url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+      if (timeRange === "year") url += "&tbs=qdr:y";
+      if (timeRange === "month") url += "&tbs=qdr:m";
+      if (timeRange === "week") url += "&tbs=qdr:w";
+      window.open(url, "_blank");
+    }
+
+    document.getElementById("openX").addEventListener("click", () => {
+      openQueryInGoogle(
+        document.getElementById("output").value,
+        document.getElementById("time").value
+      );
+    });
+
+    document.getElementById("loadHistory").addEventListener("click", () => {
+      const sel = document.getElementById("historySelect");
+      const idx = sel.value;
+      const history = loadHistoryArray();
+      const item = history[idx];
+      if (!item) return;
+      document.getElementById("role").value = item.role;
+      document.getElementById("skills").value = item.skills;
+      document.getElementById("location").value = item.location;
+      document.getElementById("site").value = item.site;
+      document.getElementById("time").value = item.time;
+      document.getElementById("output").value = item.query;
+    });
+
+    document.getElementById("runHistory").addEventListener("click", () => {
+      const sel = document.getElementById("historySelect");
+      const idx = sel.value;
+      const history = loadHistoryArray();
+      const item = history[idx];
+      if (!item) return;
+      openQueryInGoogle(item.query, item.time);
+    });
+
+    refreshHistorySelect();
+  </script>
+</body>
+</html>
