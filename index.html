@@ -2,124 +2,369 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Automotive Talent Console | Free Motor Trade Recruitment Tools</title>
+  <title>Automotive Talent Console | Automotive Hire Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Free Automotive and Motor Trade hiring toolkit – recruiter X-Ray search, candidate job finder, CV templates, recruiter directory and career guides for technicians, bodyshop and workshop roles." />
+
+  <!-- Basic SEO -->
+  <meta name="title" content="Automotive Talent Console – Free Motor Trade Sourcing & Job Tools">
+  <meta name="description" content="Automotive Talent Console by Automotive Hire Tools – free X-Ray search, job tools, CV templates and guides for Automotive & Motor Trade hiring.">
+  <meta name="keywords" content="automotive recruitment, motor trade jobs, vehicle technician, panel beater, bodyshop, sourcing tools, X-Ray search, hiring technicians">
+  <meta name="author" content="Automotive Hire Tools">
+
+  <!-- Social / Open Graph -->
+  <meta property="og:title" content="Automotive Talent Console">
+  <meta property="og:description" content="Free Automotive & Motor Trade sourcing tools: Google X-Ray, job search, Boolean builder, CV templates and more.">
+  <meta property="og:image" content="social-preview.png">
+  <meta property="og:url" content="https://automotivehiretools.github.io/automotive-talent-console/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <style>
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      margin:0;
-      padding:24px 16px;
-      background:#f5f5f7;
+    :root {
+      --bg: #f5f5f7;
+      --card: #ffffff;
+      --text-main: #111827;
+      --text-sub: #6b7280;
+      --border-subtle: #e5e7eb;
+      --brand: #008096;      /* teal */
+      --brand-soft: rgba(0,128,150,0.08);
     }
-    .page{max-width:1000px;margin:0 auto;}
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:20px;
-      gap:10px;
+
+    * {
+      box-sizing: border-box;
     }
-    .logo{
-      font-weight:650;
-      font-size:18px;
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 24px 16px 40px;
+      background: radial-gradient(circle at top left, #e0f2fe 0, #f5f5f7 45%, #f5f5f7 100%);
+      color: var(--text-main);
     }
-    .tagline{
-      font-size:12px;
-      color:#6b7280;
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
     }
-    nav a{
-      font-size:12px;
-      margin-left:10px;
-      text-decoration:none;
-      color:#4b5563;
-      padding:4px 8px;
-      border-radius:999px;
-      background:#f3f4f6;
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
     }
-    nav a:hover{background:#e5e7eb;color:#111827;}
-    .hero{
-      background:#ffffff;
-      padding:20px 20px 24px;
-      border-radius:18px;
-      box-shadow:0 18px 40px rgba(15,23,42,0.12);
-      margin-bottom:18px;
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .hero h1{
-      font-size:26px;
-      margin:0 0 6px;
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--brand);
     }
-    .hero p{
-      font-size:13px;
-      color:#6b7280;
-      margin:0 0 12px;
+
+    .brand-title {
+      font-weight: 650;
+      font-size: 18px;
     }
-    .hero-buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:6px;
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-sub);
     }
-    .btn{
-      padding:9px 14px;
-      border-radius:999px;
-      border:none;
-      font-size:13px;
-      cursor:pointer;
-      text-decoration:none;
-      display:inline-block;
+
+    nav a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #4b5563;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(148,163,184,0.3);
+      margin-left: 6px;
     }
-    .btn-primary{
-      background:#111827;
-      color:#f9fafb;
+
+    nav a:hover {
+      background: #e5f3f6;
+      border-color: rgba(0,128,150,0.3);
+      color: var(--brand);
     }
-    .btn-secondary{
-      background:#e5e7eb;
-      color:#111827;
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 20px;
+      background: var(--card);
+      border-radius: 24px;
+      padding: 24px 26px 26px;
+      box-shadow: 0 22px 45px rgba(15,23,42,0.16);
+      margin-bottom: 22px;
     }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
     }
-    .card{
-      background:#ffffff;
-      border-radius:14px;
-      padding:14px;
-      box-shadow:0 10px 24px rgba(15,23,42,0.08);
-      font-size:13px;
+
+    .hero p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-sub);
+      max-width: 550px;
     }
-    .card h3{
-      font-size:14px;
-      margin:0 0 6px;
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
     }
-    .card p{
-      margin:0 0 8px;
-      color:#6b7280;
-      font-size:12px;
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.18s ease;
     }
-    .card a{
-      font-size:12px;
-      text-decoration:none;
-      color:#111827;
-      font-weight:500;
+
+    .btn-primary {
+      background: var(--brand);
+      color: #f9fafb;
+      box-shadow: 0 10px 22px rgba(0,128,150,0.35);
     }
-    .card a:hover{text-decoration:underline;}
-    footer{
-      text-align:center;
-      font-size:11px;
-      color:#9ca3af;
-      margin-top:20px;
+
+    .btn-primary:hover {
+      background: #026a7f;
+      box-shadow: 0 14px 26px rgba(0,128,150,0.45);
+      transform: translateY(-1px);
     }
-    @media(max-width:800px){
-      .grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+
+    .btn-secondary {
+      background: #f3f4f6;
+      color: #111827;
+      border-color: #e5e7eb;
     }
-    @media(max-width:600px){
-      header{
-        flex-direction:column;
-        align-items:flex-start;
+
+    .btn-secondary:hover {
+      background: #e5e7eb;
+      transform: translateY(-1px);
+    }
+
+    .btn-share {
+      background: #ffffff;
+      color: #111827;
+      border-color: #d1d5db;
+      font-size: 13px;
+    }
+
+    .btn-share:hover {
+      background: #f9fafb;
+      transform: translateY(-1px);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .hero-metric {
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+      color: var(--text-sub);
+      width: 100%;
+    }
+
+    .hero-metric strong {
+      color: #111827;
+    }
+
+    .hero-badge {
+      align-self: flex-start;
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    /* Grid */
+    .section-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin: 6px 0 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 14px 14px 16px;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.10);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border: 1px solid rgba(148,163,184,0.18);
+      transition: 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.18);
+      border-color: rgba(0,128,150,0.30);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-icon img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .card h3 {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-sub);
+      font-size: 12px;
+    }
+
+    .card a {
+      font-size: 12px;
+      text-decoration: none;
+      color: var(--brand);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .badge-soon {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #fee2e2;
+      color: #b91c1c;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    /* About & footer */
+    .about {
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 26px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 16px;
+    }
+
+    footer a {
+      color: #6b7280;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
       }
-      .grid{grid-template-columns:1fr;}
+      .hero-right {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-left: -4px;
+      }
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      body {
+        padding: 16px 12px 32px;
+      }
     }
   </style>
 </head>
@@ -127,8 +372,13 @@
   <div class="page">
     <header>
       <div>
-        <div class="logo">Automotive Talent Console</div>
-        <div class="tagline">Free tools for Automotive, Motor Trade &amp; Bodyshop careers.</div>
+        <div class="brand-block">
+          <div class="brand-icon">🚗</div>
+          <div>
+            <div class="brand-title">Automotive Talent Console</div>
+            <div class="brand-sub">by Automotive Hire Tools</div>
+          </div>
+        </div>
       </div>
       <nav>
         <a href="auto_candidate_console.html">Candidates</a>
@@ -137,20 +387,40 @@
     </header>
 
     <section class="hero">
-      <h1>Your free toolkit for Automotive &amp; Motor Trade hiring.</h1>
-      <p>
-        One place for recruiters and candidates in the Automotive, Motor Trade and Bodyshop world:
-        build X-Ray searches, find jobs, download CV templates, explore recruiters and learn about career paths.
-      </p>
-      <div class="hero-buttons">
-        <a href="auto_candidate_console.html" class="btn btn-primary">I’m looking for a job</a>
-        <a href="auto_recruiter_console.html" class="btn btn-secondary">I’m hiring talent</a>
+      <div>
+        <div class="hero-tag">Free tools for Automotive, Motor Trade &amp; Bodyshop careers</div>
+        <h1>Your free toolkit for Automotive &amp; Motor Trade hiring.</h1>
+        <p>
+          One simple console for recruiters and candidates in the Automotive, Motor Trade and Bodyshop world:
+          build X-Ray searches, find jobs, download CV templates, explore recruiters and learn about career paths.
+        </p>
+        <div class="hero-buttons">
+          <a href="auto_candidate_console.html" class="btn btn-primary">I’m looking for a job</a>
+          <a href="auto_recruiter_console.html" class="btn btn-secondary">I’m hiring talent</a>
+          <button class="btn btn-share" onclick="copyLink()">Share this tool</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-metric">
+          <strong>Built for busy workshops &amp; recruiters.</strong><br>
+          Quickly spin up focused Google searches for vehicle technicians, bodyshop teams, EV specialists and more – with no logins, no ads and no tracking.
+        </div>
+        <div class="hero-badge">
+          No sign-up • No tracking • Always free
+        </div>
       </div>
     </section>
 
+    <div class="section-title">Tools in this console</div>
+
     <section class="grid">
       <div class="card">
-        <h3>Candidate Job Finder</h3>
+        <div class="card-header">
+          <div class="card-icon">
+            <img src="small_icon_car.png" alt="Car icon">
+          </div>
+          <h3>Candidate Job Finder</h3>
+        </div>
         <p>
           Build smart Google job searches across major sites for vehicle technicians, mechanics, panel beaters,
           paint technicians, estimators, service advisors and more.
@@ -159,16 +429,26 @@
       </div>
 
       <div class="card">
-        <h3>Recruiter X-Ray Console</h3>
+        <div class="card-header">
+          <div class="card-icon">
+            <img src="small_icon_wrench.png" alt="Wrench icon">
+          </div>
+          <h3>Recruiter X-Ray Console</h3>
+        </div>
         <p>
           Advanced Boolean builder and X-Ray search for recruiters. Deep and Deep PRO modes, CV-type file search,
-          synonym expansion and recent search history.
+          synonym expansion and recent search history – all running locally in your browser.
         </p>
         <a href="auto_recruiter_console.html">Open recruiter console →</a>
       </div>
 
       <div class="card">
-        <h3>CV Templates</h3>
+        <div class="card-header">
+          <div class="card-icon">
+            <img src="small_icon_mechanic.png" alt="Mechanic icon">
+          </div>
+          <h3>CV Templates</h3>
+        </div>
         <p>
           Clean CV templates tailored for Automotive and Motor Trade jobs – technicians, bodyshop, service and workshop roles.
         </p>
@@ -176,40 +456,74 @@
       </div>
 
       <div class="card">
-        <h3>Recruiter Directory</h3>
+        <div class="card-header">
+          <div class="card-icon">
+            <img src="small_icon_steering.png" alt="Steering wheel icon">
+          </div>
+          <h3>Recruiter Directory</h3>
+        </div>
         <p>
-          (Optional) List of Automotive &amp; Motor Trade recruitment agencies, in-house teams and specialist headhunters.
+          (Optional) List of Automotive &amp; Motor Trade recruitment agencies, in-house teams and specialist headhunters you may choose to contact.
         </p>
         <a href="automotive_recruiters_directory.html">Open recruiter directory →</a>
       </div>
 
       <div class="card">
-        <h3>Vehicle Technician Career Guide</h3>
+        <div class="card-header">
+          <div class="card-icon">
+            <img src="small_icon_engine.png" alt="Engine icon">
+          </div>
+          <h3>Vehicle Technician Career Guide</h3>
+        </div>
         <p>
-          Explore routes into vehicle technician roles, qualifications, pay ranges and how to transition between dealer, fast-fit and bodyshop.
+          Explore routes into vehicle technician roles, qualifications, pay ranges and how to transition between dealer, fast-fit and bodyshop environments.
         </p>
         <a href="vehicle-technician-career-guide.html">Read the guide →</a>
       </div>
 
       <div class="card">
-        <h3>Coming soon</h3>
+        <div class="card-header">
+          <div class="card-icon">
+            <img src="small_icon_gear.png" alt="Gear icon">
+          </div>
+          <h3>Coming soon</h3>
+        </div>
         <p>
           More free tools for interview prep, EV &amp; diagnostics upskilling, and global Automotive career paths.
         </p>
-        <span style="font-size:12px;color:#9ca3af;">No sign-up, no tracking, always free.</span>
+        <span style="font-size:11px; color:#9ca3af;">No sign-up, no tracking, always free.</span>
       </div>
     </section>
 
+    <div class="about">
+      Automotive Talent Console is a free project by <strong>Automotive Hire Tools</strong>.<br>
+      Helping technicians, bodyshops and motor trade recruiters connect faster – with no accounts, no data collection and no extra cost.
+    </div>
+
     <footer>
-      <strong>Disclaimer:</strong> All tools on this site generate public Google search links only and do not collect, store or track personal data.
-      Users are responsible for complying with Google and third-party website policies.
+      <div>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="copyright.html">Copyright</a>
+      </div>
+      <div style="margin-top:6px;">
+        Disclaimer: All tools on this site generate public Google search links only and do not collect, store or track personal data.
+        Users are responsible for complying with Google and third-party website policies.
+      </div>
     </footer>
   </div>
+
+  <script>
+    function copyLink() {
+      const url = "https://automotivehiretools.github.io/automotive-talent-console/";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url)
+          .then(() => alert("Link copied! You can now paste it into WhatsApp, LinkedIn or anywhere you like."))
+          .catch(() => alert("Could not copy automatically – please copy the link from your browser address bar."));
+      } else {
+        alert("Your browser may not support automatic copy – please copy the link from your address bar.");
+      }
+    }
+  </script>
 </body>
 </html>
-<div style="margin-top:10px;">
-  <a href="terms.html" style="color:#9ca3af; margin-right:10px;">Terms</a>
-  <a href="privacy.html" style="color:#9ca3af; margin-right:10px;">Privacy</a>
-  <a href="copyright.html" style="color:#9ca3af;">Copyright</a>
-</div>
-
